@@ -284,14 +284,14 @@ def administrar_chatbot(text, number, messageId, name):
     time.sleep(2)
 
     # Saludo inicial
-    if any(g in text for g in ["hola", "buenas tardes", "buenos dias", "buenas noches", "buen dia", "buena tarde", "buena noche"]):
+    if "hola" in text or "buenas tardes" in text or "buenos dias" in text or "buenas noches" in text or "buen dia" in text or "buena tarde" in text or "buena noche" in text:
         body = f"¡Hola {name if name else ''}! 👋 Bienvenido a *R&R Cordoba Autos*. Soy Volky, seré tu asesor virtual y estoy aquí para ayudarte a encontrar tu próximo auto 🚗✨.\n\n¿Cuál es tu nombre completo para poder atenderte mejor?"
-        footer = "Asistente Virtual *Volky*"
+        footer = "Asistente Virtual Volky"
         options = ["Quiero ver autos disponibles", "Tengo un auto para tomar a cuenta", "Quiero cotizar un auto"]
-        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1", messageId)
-        list.append(replyButtonData)
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         list.append(replyReaction_Message(number, messageId, "🚗"))
-
+        list.append(replyButtonData)
+        
     # Mostrar autos disponibles (elige categoría)
     elif "autos disponibles" in text or "ver autos" in text:
         body = "Perfecto ✅ Tenemos varias opciones. ¿Qué categoría te interesa?\n\n🚙 SUV\n🚗 Compactos (sedanes/hatchback)\n🚘 Camionetas (pickups y comerciales)"
@@ -417,7 +417,7 @@ def administrar_chatbot(text, number, messageId, name):
                 "• ¿Tienes *auto a cuenta*? (marca, modelo, año)")
         textMessage = text_Message(number, body)
         list.append(textMessage)
-        
+
     elif text.strip() == "sí":
         # Llevar al flujo de autos disponibles
         body = "Perfecto ✅ ¿Qué categoría te interesa?\n\n🚙 SUV\n🚗 Compactos (sedanes/hatchback)\n🚘 Camionetas (pickups y comerciales)"
