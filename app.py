@@ -44,4 +44,6 @@ def recibir_mensajes():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
+    services.load_leads()
+    print("Activo")
     app.run(host="0.0.0.0", port=port, debug=True)

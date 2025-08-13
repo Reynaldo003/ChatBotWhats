@@ -1,0 +1,26 @@
+{
+  "522711872907": {
+    "nombre": "evelyn pena",
+    "enganche": 200,
+    "auto_a_cuenta": "Reynaldo Vallejo, Nuevo gti, credito, auto a cuenta chevrolet, chevy, 2000",
+    "auto_objetivo": "NUEVO GTI",
+    "fecha_cita": null,
+    "prueba_manejo": true,
+    "fecha_prueba": "10:00 AM - 12:00 PM",
+    "pago": "crédito",
+    "created_at": "2025-08-13T12:39:15.799180-06:00",
+    "updated_at": "2025-08-13T14:08:16.032035-06:00"
+  },
+  "522781129460": {
+    "nombre": null,
+    "enganche": null,
+    "auto_a_cuenta": null,
+    "auto_objetivo": null,
+    "fecha_cita": null,
+    "prueba_manejo": false,
+    "fecha_prueba": null,
+    "pago": null,
+    "created_at": "2025-08-13T13:01:30.539150-06:00",
+    "updated_at": "2025-08-13T13:01:30.539188-06:00"
+  }
+}
