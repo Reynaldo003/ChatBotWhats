@@ -284,17 +284,28 @@ def administrar_chatbot(text, number, messageId, name):
     time.sleep(2)
 
     # Saludo inicial
-    if "hola" in text or "buenas tardes" in text or "buenos dias" in text or "buenas noches" in text or "buen dia" in text or "buena tarde" in text or "buena noche" in text:
+    """
+    if "hola" in text:
         body = f"¡Hola {name if name else ''}! 👋 Bienvenido a *R&R Cordoba Autos*. Soy Volky, seré tu asesor virtual y estoy aquí para ayudarte a encontrar tu próximo auto 🚗✨.\n\n¿Cuál es tu nombre completo para poder atenderte mejor?"
         footer = "Asistente Virtual Volky"
         options = ["Quiero ver autos disponibles", "Tengo un auto para tomar a cuenta", "Quiero cotizar un auto"]
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         list.append(replyReaction_Message(number, messageId, "🚗"))
         list.append(replyButtonData)
+    """
+    if "hola" in text or "buenas tardes" in text or "buenos dias" in text or "buenas noches" in text or "buen dia" in text or "buena tarde" in text or "buena noche" in text:
+        body = "¡Hola! 👋 Bienvenido a *R&R Cordoba Autos*. Soy Volky, seré tu asesor virtual y estoy aquí para ayudarte a encontrar tu próximo auto 🚗."
+        footer = "Asistente Virtual Volky"
+        options = ["Quiero ver autos disponibles", "Quiero cotizar un auto"]
         
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
+        list.append(replyButtonData)
+
     # Mostrar autos disponibles (elige categoría)
     elif "autos disponibles" in text or "ver autos" in text:
-        body = "Perfecto ✅ Tenemos varias opciones. ¿Qué categoría te interesa?\n\n🚙 SUV\n🚗 Compactos (sedanes/hatchback)\n🚘 Camionetas (pickups y comerciales)"
+        body = "Perfecto ✅ Tenemos varias opciones. ¿Qué categoría te interesa?\n\n🚙 SUV\n🚗 Compactos\n🚘 Camionetas"
         footer = "Ventas R&R Cordoba"
         options = ["SUV", "Compactos", "Camionetas"]
         listReplyData = listReply_Message(number, options, body, footer, "sed2", messageId)
@@ -311,7 +322,7 @@ def administrar_chatbot(text, number, messageId, name):
     # Cotización de auto
     elif "quiero cotizar un auto" in text or "cotizar" in text:
         body = ("Claro, dime por favor:\n"
-                "1️⃣ *Modelo* que te interesa (por ejemplo: Taos 2025).\n"
+                "1️⃣ *Modelo* que te interesa.\n"
                 "2️⃣ ¿Compra de *contado* o a *crédito*?\n"
                 "3️⃣ Si es a crédito, ¿cuánto consideras de *enganche*?")
         textMessage = text_Message(number, body)
@@ -340,7 +351,7 @@ def administrar_chatbot(text, number, messageId, name):
         body = (f"Excelente elección: *{modelo}* ✅\n\n"
                 "¿Qué te gustaría hacer ahora?")
         footer = "Ventas R&R Cordoba"
-        opciones = ["Ver lista de precios", "Ver promociones", "Opciones de financiamiento", "Agendar prueba de manejo"]
+        opciones = ["Ver lista de precios","Agendar prueba de manejo"]
         listReplyData = listReply_Message(number, opciones, body, footer, "sed4", messageId)
         list.append(listReplyData)
 
