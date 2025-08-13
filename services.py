@@ -382,6 +382,28 @@ def markRead_Message(messageId):
     })
     return data
 
+SALUDOS = [
+    "hola", "holaa", "holaaa", "holaaaa", "holaaaaa",
+    "holis", "holiss", "holaaa que tal", "holaaa buenas",
+    "buenas", "buenas tardes", "buenas noches", "buenos dias", "buenos días",
+    "buen dia", "buen día", "buena tarde", "buena noche",
+    "qué tal", "que tal", "q tal", "qtal",
+    "qué onda", "que onda", "q onda", "qonda",
+    "qué pasó", "que pasó", "qué paso", "que paso",
+    "qué hubo", "que hubo", "quiubo", "q hubo",
+    "saludos", "saludos cordiales", "saluditos", "saludooos",
+    "hey", "heyy", "heyyy",
+    "ola", "olaa", "olaaa",
+    "holiwis", "holiwis!", "holis!", "holiw",
+    "wena", "wenas", "wenass",
+    "alo", "aló", "aloo", "alooo",
+    "epa", "epaaa",
+    "hello", "helloo", "hellooo",
+    "hi", "hii", "hiii",
+    "menu", "inicio", "empezar"
+]
+
+
 # =========================
 # NÚCLEO DEL CHATBOT
 # =========================
@@ -426,7 +448,7 @@ def administrar_chatbot(text, number, messageId, name):
     # ---- INTENCIONES PRINCIPALES
 
     # Saludo / inicio
-    if any(g in text for g in ["hola","buenas tardes","buenos dias","buenos días","buenas noches","buen dia","buen día","buena tarde","buena noche","menu","inicio","empezar"]):
+    if any(g in text for g in SALUDOS):
         body = (f"¡Hola {lead['nombre']+' ' if lead['nombre'] else ''}👋! Soy *Volky* de *R&R Córdoba Autos*.\n"
                 "¿Qué te gustaría hacer?")
         footer = "Asistente Virtual Volky"
